@@ -1,0 +1,758 @@
+index-html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDM Consultancy PLC | Advancing Sustainability & Institutional Excellence</title>
+    <!-- Google Fonts for Corporate Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary: #1e4620; /* Deep Forest Green */
+            --secondary: #1a2e40; /* Slate Blue/Charcoal */
+            --accent: #d4a373; /* Warm Ochre/Gold */
+            --light: #f8f9fa;
+            --dark: #111111;
+            --text: #333333;
+            --gray: #666666;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        h1, h2, h3, .brand-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+        }
+
+        a {
+            text-transform: none;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        /* Utility Components */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .btn-accent:hover {
+            background-color: #c29263;
+            color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .brand-logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-logo span {
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary);
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        #home {
+            background: linear-gradient(rgba(26, 46, 64, 0.85), rgba(30, 70, 32, 0.85)), url('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            color: #ffffff;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Stats Counter Matrix */
+        .stats-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-top: -4rem;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--light);
+            padding-top: 6rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .philosophy-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .philosophy-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .philosophy-card h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Expertise/Services Section */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .expertise-card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #555;
+        }
+
+        .expertise-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Portfolio & Table Section */
+        #portfolio {
+            background-color: var(--light);
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            margin-top: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: var(--secondary);
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: #fcfcfc;
+        }
+
+        /* Training & Insights Section */
+        .training-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .training-block h3 {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .modules-list .module-item {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .module-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--secondary);
+            color: #ffffff;
+        }
+
+        #contact .section-title {
+            color: #ffffff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-details-block {
+            margin-bottom: 2rem;
+        }
+
+        .contact-details-block p {
+            margin-bottom: 0.5rem;
+            opacity: 0.85;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 4px;
+            font-family: inherit;
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111111;
+            color: #888888;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .about-grid, .expertise-grid, .training-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Can be enhanced with mobile hamburger js menu toggle if needed */
+            }
+            .stats-matrix {
+                grid-template-columns: 1fr;
+                margin-top: 0;
+            }
+            #home {
+                height: auto;
+                padding: 120px 0 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="brand-logo">
+                HDM CONSULTANCY
+                <span>HOLISTIC DEVELOPMENT & MANAGEMENT</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#expertise">Core Expertise</a></li>
+                <li><a href="#portfolio">Track Record</a></li>
+                <li><a href="#training">Insights</a></li>
+                <li><a href="#contact" class="btn btn-primary" style="color: #fff; padding: 0.5rem 1.2rem;">Partner With Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Hero Section -->
+    <section id="home">
+        <div class="hero-content">
+            <h1>Advancing Sustainability.<br>Architecting Institutional Excellence.</h1>
+            <p>Practical, context-sensitive advisory, nature-based solutions, and high-tier strategic capacity building tailored for East Africa's environmental, agricultural, and public sectors.</p>
+            <a href="#portfolio" class="btn btn-accent">Explore Our Track Record</a>
+        </div>
+    </section>
+
+    <!-- Stats Matrix Overlay Container -->
+    <div class="container" style="padding: 0; margin-top: 0; margin-bottom: 0;">
+        <div class="stats-matrix">
+            <div class="stat-item">
+                <h3>20+</h3>
+                <p>Years of Collective Technical Expert Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>5+</h3>
+                <p>Years of Independent Corporate Operations</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Context-Driven Local Ownership & Execution</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Our Firm</h2>
+            <p class="subtitle">Bridging the gap between high-level macro policy and local socio-economic field implementation.</p>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <p><strong>Holistic Development and Management Consultancy PLC (HDM)</strong> is an esteemed consulting firm dedicated to advancing holistic development that ensures long-term sustainability across the agricultural sector, Nature-based Solutions (NbS), institutional strategy, and result-oriented project management.</p>
+                    <p>Backed up by a team whose collective experience spans the forestry, natural resource management, macro-policy, economics, and agriculture fields, our combination of fresh insights and seasoned regulatory expertise allows us to navigate complex bureaucratic and cultural landscapes reliably.</p>
+                </div>
+                <div class="philosophy-boxes">
+                    <div class="philosophy-card">
+                        <h4>Our Mission</h4>
+                        <p style="font-size:0.9rem; color:var(--gray);">To deliver high-impact advisory services emphasizing measurable outcomes and robust local ownership.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <h4>Our Approach</h4>
+                        <p style="font-size:0.9rem; color:var(--gray);">Collaborative, evidence-backed, and meticulously aligned to national priorities and regional needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Expertise Section -->
+    <section id="expertise">
+        <div class="container">
+            <h2 class="section-title">Core Expertise & Services</h2>
+            <p class="subtitle">Comprehensive multidisciplinary solutions structured to meet modern development challenges.</p>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Nature-based Solutions (NbS) & Forestry</h3>
+                    <ul>
+                        <li>Rigorous ecological baseline data compilation and remote-sensing forest cover analysis.</li>
+                        <li>Comprehensive reserve management planning safeguarding endangered structures and restoring habitats.</li>
+                        <li>Agroforestry integration balancing biodiversity with local socio-economic livelihoods.</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Climate Finance & Carbon Markets</h3>
+                    <ul>
+                        <li>Carbon farming systems development structured around the updated NDCs of Ethiopia.</li>
+                        <li>High-standard carbon credit project design targeted to benefit sub-national agrarian communities.</li>
+                        <li>Strategic training aligning Ministerial operations with global climate financing mechanisms.</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Agriculture & Value Chain Development</h3>
+                    <ul>
+                        <li>Comprehensive market systems development (MSD) for climate-resilient crop values.</li>
+                        <li>Integrated agronomic training manuals covering sustainable honey, spices, and coffee markets.</li>
+                        <li>Multidisciplinary structural evaluations focused on livestock and smallholder security.</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Institutional Strategy & Capacity Building</h3>
+                    <ul>
+                        <li>Long-term strategic planning processes mapped for federal-tier justice and judicial organs.</li>
+                        <li>Tailored executive training modules targeting management structural change and leadership.</li>
+                        <li>Result-Based Management (RBM/PCM) system design enhancing structural program execution.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Track Record Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Institutional Track Record</h2>
+            <p class="subtitle">A proven historical timeline of delivering verified value to governments, international NGOs, and agencies.</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Description of Consultancy Assignment</th>
+                            <th>Organization / Client Partner</th>
+                            <th>Duration / Timeline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>Baseline Assessment for Biodiversity and Livelihood Development Program (Western Ethiopia)</td>
+                            <td>Global Green Growth Institute (GGGI) & ECFF</td>
+                            <td>March – June 2022</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>Final Evaluation and Baseline Assessments for Joint Emergency Operations Program (JEOP)</td>
+                            <td>Catholic Relief Services (CRS)</td>
+                            <td>September 2021 – July 2022</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>Strategic Plan Design (2021-2026) and Project Cycle Management (PCM) Training</td>
+                            <td>Environment and Coffee Forest Forum (ECFF)</td>
+                            <td>2021</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>Management Plan (2022-2026) Development and Training Manual for Majang Biosphere Reserve</td>
+                            <td>MELCA Ethiopia</td>
+                            <td>March - May 2021</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>Development of Training Modules (Beekeeping, Spices value chain, & Coffee Cultivation)</td>
+                            <td>Environment and Coffee Forest Forum (ECFF)</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>Assessment of Forest Conditions and Cover Changes (Majang and Anywa Zones)</td>
+                            <td>Environment and Coffee Forest Forum (ECFF)</td>
+                            <td>Completed January 2023</td>
+                        </tr>
+                        <tr>
+                            <td><strong>7</strong></td>
+                            <td>Capacity Building Training on Carbon Farming, Carbon Credits, and Climate Change Finance</td>
+                            <td>Ministry of Agriculture (Federal and Regional)</td>
+                            <td>February 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights & Curriculum Training Modules Section -->
+    <section id="training">
+        <div class="container">
+            <h2 class="section-title">Insights & Training Modules</h2>
+            <p class="subtitle">Custom curricula engineered by HDM experts to accelerate professional performance and sustainable field methodologies.</p>
+            
+            <div class="training-grid">
+                <div class="training-block">
+                    <h3>Public Sector Governance Suite</h3>
+                    <div class="modules-list">
+                        <div class="module-item">
+                            <h4>Organizational Change Management</h4>
+                            <p style="font-size:0.9rem; color:var(--gray);">Transition frameworks designed for high-level leadership alignment and institutional baseline shifts.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4>Strategic Leadership & Planning</h4>
+                            <p style="font-size:0.9rem; color:var(--gray);">Advanced mechanics mapping context evaluation, mission modeling, and systematic priority tracking.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4>Result-Based Management (RBM/PCM)</h4>
+                            <p style="font-size:0.9rem; color:var(--gray);">Operational tools monitoring systematic indicator setting, mid-term updates, and metrics verification.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-block">
+                    <h3>Sustainable Agronomy & Value Chains</h3>
+                    <div class="modules-list">
+                        <div class="module-item">
+                            <h4>Modern Beekeeping Management</h4>
+                            <p style="font-size:0.9rem; color:var(--gray);">Equipping agrarian clusters with updated colony monitoring models and ecosystem preservation habits.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4>Spices Value Chains Integration</h4>
+                            <p style="font-size:0.9rem; color:var(--gray);">Market tracing, quality compliance procedures, and cooperative value addition strategy setups.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4>Climate-Resilient Coffee Cultivation</h4>
+                            <p style="font-size:0.9rem; color:var(--gray);">Maximizing yield quality indicators and market linkage vectors while safeguarding old forest canopies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Connect With Our Team</h2>
+            <p class="subtitle" style="color: #bbb;">Discuss prospective advisory setups, project partner roles, or systemic evaluations with HDM experts.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Partner with HDM Consultancy PLC</h3>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">We are committed to fostering deep institutional partnerships with ministries, development partners, civil society groups, and community stakeholders globally.</p>
+                    
+                    <div class="contact-details-block">
+                        <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Corporate Headquarters</h4>
+                        <p>Holistic Development & Management (HDM) Consulting P.L.C.</p>
+                        <p>Nefasilk Lafto Subcity, Mina Mall Building, 5th Floor</p>
+                        <p>Jemo Road, Addis Ababa, Ethiopia</p>
+                    </div>
+
+                    <div class="contact-details-block">
+                        <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Direct Communications</h4>
+                        <p><strong>Email:</strong> Adugna.nemera@gmail.com</p>
+                        <p><strong>Tel:</strong> +251 911 485 305</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST" onsubmit="alert('Thank you for reaching out. An HDM Senior Partner will contact you shortly.'); return false;">
+                        <div class="form-group">
+                            <label for="name">Full Name / Organization Representative</label>
+                            <input type="text" id="name" required placeholder="e.g., Ministry of Agriculture Partner">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Official Corporate Email Address</label>
+                            <input type="email" id="email" required placeholder="name@organization.org">
+                        </div>
+                        <div class="form-group">
+                            <label for="domain">Primary Service Domain</label>
+                            <select id="domain">
+                                <option value="nbs">Nature-based Solutions & Forestry</option>
+                                <option value="climate">Climate Finance & Carbon Credits</option>
+                                <option value="agri">Agriculture & Value Chains</option>
+                                <option value="strategy">Institutional Strategy & Change Management</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Brief / Partnership Requirements</label>
+                            <textarea id="message" rows="5" required placeholder="Outline your engagement objectives..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="width: 100%; border:none; padding:1rem;">Transmit Partnership Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Corporate Footer -->
+    <footer>
+        <div class="container" style="padding:0;">
+            <p>&copy; 2026 Holistic Development & Management (HDM) Consultancy PLC. All Rights Reserved.</p>
+            <p style="font-size:0.75rem; color:#555; margin-top:0.5rem;">Empowering long-term regional transformation through high-standard context-sensitive local governance.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
